@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <app-header v-bind:name="name"></app-header>
+        <app-content v-bind:age="num"></app-content>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var  appHeader = {
+            template: '<h1>hi, {{ name }}</h1>',
+            props: ['name']
+        }
+
+        var appContent = {
+            template: '<div>content {{ age }}</div>',
+            props: ['age']
+        }
+
+        new Vue({
+            el: '#app',
+            components: {
+                'app-header': appHeader,
+                'app-content': appContent
+            },
+            data: {
+                name: 'props',
+                num: 10
+            }
+        })
+    </script>
+</body>
+</html>
